@@ -23,7 +23,6 @@ def consolidate_cart(cart)
       count: 1
     }
   end
-  binding.pry
   return new_cart.values
 end
 
@@ -51,7 +50,6 @@ def apply_coupons(cart, coupons)
       end  
     end 
   end
-  binding pry
    cart
 end
 
