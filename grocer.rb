@@ -57,7 +57,19 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
       item = find_item_by_name_in_collection(coupon[:item], cart)
       item_with_coupon = find_item_by_name_in_collection(item, cart)
-      if item && item[]
+      if item && item[:count] >= coupon[:num]
+        if item_with_coupon
+          item_with_coupon[:count] += coupon[:num]
+          item[:count] -= coupon[:num]
+        else 
+          new_item = {
+          item: "#{item[:item]} W/COUPON",
+          price: price,
+          clearance: item[:clearance],
+          count: counter
+        }
+        end
+      end
   end
 end
 
