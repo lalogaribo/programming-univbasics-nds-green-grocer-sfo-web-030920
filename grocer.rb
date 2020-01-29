@@ -53,6 +53,14 @@ end
 #   cart
 # end
 
+def apply_coupons(cart, coupons)
+  coupons.each do |coupon|
+      item = find_item_by_name_in_collection(coupon[:item], cart)
+      item_with_coupon = find_item_by_name_in_collection(item, cart)
+      if item && item[]
+  end
+end
+
 def apply_clearance(cart)
   cart.each do |item|
     discount = item[:price] - (item[:price] * 0.20)
