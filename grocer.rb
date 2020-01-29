@@ -26,32 +26,32 @@ def consolidate_cart(cart)
   return new_cart.values
 end
 
-def apply_coupons(cart, coupons)
-  # return nil if coupons.length < 0
-  new_item = {}
-  counter = 0
-  cart.each do |item|
-    return nil if !cart.include?(item)
-    coupons.each do |coupon|
-      if item[:item] == coupon[:item]
-      price = coupon[:cost] / coupon[:num]
-        while coupon[:num] > 0
-          coupon[:num] -=1
-          item[:count] -= 1
-          counter += 1
-        end
-        new_item = {
-          item: "#{item[:item]} W/COUPON",
-          price: price,
-          clearance: item[:clearance],
-          count: counter
-        }
-        cart << new_item
-      end  
-    end 
-  end
-   cart
-end
+# def apply_coupons(cart, coupons)
+#   # return nil if coupons.length < 0
+#   new_item = {}
+#   counter = 0
+#   cart.each do |item|
+#     return nil if !cart.include?(item)
+#     coupons.each do |coupon|
+#       if item[:item] == coupon[:item]
+#       price = coupon[:cost] / coupon[:num]
+#         while coupon[:num] > 0
+#           coupon[:num] -=1
+#           item[:count] -= 1
+#           counter += 1
+#         end
+#         new_item = {
+#           item: "#{item[:item]} W/COUPON",
+#           price: price,
+#           clearance: item[:clearance],
+#           count: counter
+#         }
+#         cart << new_item
+#       end  
+#     end 
+#   end
+#   cart
+# end
 
 def apply_clearance(cart)
   cart.each do |item|
